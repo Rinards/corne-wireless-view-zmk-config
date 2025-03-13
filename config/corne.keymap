@@ -10,6 +10,13 @@
 
 #define AS(keycode) &as LS(keycode) keycode
 #define M_LGUI(keycode) &hm LGUI keycode
+#define M_RGUI(keycode) &hm RGUI keycode
+#define M_LALT(keycode) &hm LALT keycode
+#define M_RALT(keycode) &hm RALT keycode
+#define M_LSHFT(keycode) &hm LSHFT keycode
+#define M_RSHFT(keycode) &hm RSHFT keycode
+#define M_LCTRL(keycode) &hm LCTRL keycode
+#define M_RCTRL(keycode) &hm RCTRL keycode
 
 / {
         behaviors {
@@ -36,10 +43,10 @@
 
                 base_layer {
                         bindings = <
-    &kp ESC   &kp Q &kp W &kp E   &kp R     &kp T        &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-    AS(GRAVE) &kp A &kp S &kp D   M_LGUI(F) &kp G        &kp H &kp J  &kp K     &kp L   AS(SEMI) AS(SQT)
-    &kp LALT  &kp Z &kp X &kp C   &kp V     &kp B        &kp N &kp M  AS(COMMA) AS(DOT) AS(FSLH) &kp LCTRL
-                          &kp RET &kp SPACE AS(TAB)      &mo 1 &mo 2  &kp RSHFT
+    &kp ESC   &kp Q &kp W      &kp E     &kp R     &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
+    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F) M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
+    &kp LALT  &kp Z &kp X      &kp C     &kp V     &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp LCTRL
+                               &kp RET   &kp SPACE AS(TAB)         &mo 1      &mo 2     &kp RSHFT
                         >;
                 };
                 num_layer {
