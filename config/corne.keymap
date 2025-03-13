@@ -8,6 +8,10 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define BASE 0
+#define NUM 1
+#define NAV 2
+
 #define AS(keycode) &as LS(keycode) keycode
 #define M_LGUI(keycode) &hm LGUI keycode
 #define M_RGUI(keycode) &hm RGUI keycode
@@ -30,27 +34,29 @@
                         bindings = <&kp>, <&kp>;
                 };
 
-                hm: balanced_homerow_mods {
+                hm: homerow_mods {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         tapping-term-ms = <150>;
                         quick-tap-ms = <0>;
-                        flavor = "balanced";
+                        flavor = "tap-preferred";
                         bindings = <&kp>, <&kp>;
                 };
         };
+
         keymap {
                 compatible = "zmk,keymap";
-
                 base_layer {
+                        display-name = "QWERTY";
                         bindings = <
-    &kp ESC   &kp Q &kp W      &kp E     &kp R             &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
-    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F)         M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
-    &kp LALT  &kp Z &kp X      &kp C     &kp V             &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp LCTRL
-                               &kp RET   M_HYPR(SPACE) AS(TAB)         &mo 1      &mo 2     &kp RSHFT
+    &kp ESC   &kp Q &kp W      &kp E     &kp R         &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
+    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F)     M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
+    &kp LALT  &kp Z &kp X      &kp C     &kp V         &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp LCTRL
+                               &kp RET   M_HYPR(SPACE) AS(TAB)         &mo NUM    &mo NAV   &kp RSHFT
                         >;
                 };
                 num_layer {
+                        display-name = "NUM";
                         bindings = <
     &trans &none &none     &none    &none    &none       AS(EQUAL) AS(N7) AS(N8) AS(N9) AS(MINUS) &trans
     &none  &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT   AS(LBKT)  AS(N4) AS(N5) AS(N6) AS(RBKT)  &none
@@ -60,6 +66,7 @@
                 };
 
                 nav_layer {
+                        display-name = "NAV";
                         bindings = <
     &kp F1 &kp F2 &kp F3    &kp F4   &kp F5   &kp F6     &kp F7 &kp F8   &kp F9    &kp F10   &kp F11   &kp F12
     &none  &none  &kp LCTRL &kp LALT &kp LGUI &kp LSHFT  &none  &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none
