@@ -11,78 +11,31 @@
 #define BASE 0
 #define NUM 1
 #define NAV 2
-#define FN 3
-
-#define AS(keycode) &as LS(keycode) keycode
 
 / {
-        behaviors {
-                hyper: hyper {
-                compatible = "zmk,behavior-mod-morph";
-                label = "Hyper";
-                mods = <&lctrl &lalt &lgui &lshift>;
-                };
-
-                hm: balanced_homerow_mods {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <0>;
-                        flavor = "balanced";
-                        bindings = <&kp>, <&kp>;
-                };
-
-                as: auto_shift {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping_term_ms = <150>;
-                        quick_tap_ms = <0>;
-                        flavor = "tap-preferred";
-                        bindings = <&kp>, <&kp>;
-                };
-        };
-
         keymap {
                 compatible = "zmk,keymap";
 
                 base_layer {
-//? BASE LAYER
-//? -----------------------------------------------------------------------------------------
-//? | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-//? |  `   |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-//? | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RCTRL  |
-//?                    | ENT | SPC | TAB |   | NUM | NAV  | RSHFT |
                         display-name = "QWERTY";
                         bindings = <
    &kp ESC   &kp Q &kp W       &kp E        &kp R            &kp T          &kp Y       &kp U      &kp I      &kp O       &kp P    &kp BSPC
-   AS(GRAVE) &kp A &hm LCTRL S &hm LALT D   &hm LGUI F       &hm LSHFT G    &hm RSHFT H &hm RGUI J &hm RALT K &hm RCTRL L AS(SEMI) AS(SQT)
-   &kp LALT  &kp Z &kp X       &kp C        &kp V            &kp B          &kp N       &kp M      AS(COMMA)  AS(DOT)     AS(FSLH) &kp RCTRL
-                               &kp ENT      &hm HYPER SPACE  AS(TAB)        &mo NUM     &mo NAV    &kp RSHFT
+   &kp GRAVE &kp A &kp S       &kp D        &kp F            &kp G          &kp H       &kp J      &kp K      &kp L       &kp SEMI &kp SQT
+   &kp LALT  &kp Z &kp X       &kp C        &kp V            &kp B          &kp N       &kp M      &kp COMMA  &kp DOT     &kp FSLH &kp RCTRL
+                               &kp ENT      &kp SPACE        &kp TAB        &mo NUM     &mo NAV    &kp RSHFT
                         >;
                 };
-                NUM_layer {
-//? NUM LAYER
-//? -----------------------------------------------------------------------------------------
-//? |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-//? | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-//? | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//?                    | GUI |     | SPC |   | ENT |     | ALT |
+                num_layer {
                         display-name = "Numbers";
                         bindings = <
-    &none &none &none &none &none &none      &none AS(N7) AS(N8) AS(N9) &none &none
-    &none &none &none &none &none &none      &none AS(N4) AS(N5) AS(N6) &none &none
-    &none &none &none &none &none &none      &none AS(N1) AS(N2) AS(N3) &none &none
-                      &none &none &none      &none AS(N0) &none 
+    &none &none &none &none &none &none      &none &none &none &none &none &none
+    &none &none &none &none &none &none      &none &none &none &none &none &none
+    &none &none &none &none &none &none      &none &none &none &none &none &none
+                      &none &none &none      &none &none &none 
                         >;
                 };
 
-                raise_layer {
-//? NAV LAYER
-//? -----------------------------------------------------------------------------------------
-//? |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-//? | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-//? | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//?                    | GUI |     | SPC |   | ENT |     | ALT |
+                nav_layer {
                         display-name = "Navigation";
                         bindings = <
    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
@@ -91,10 +44,5 @@
                     	     &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
                         >;
                 };
-
-                fn_layer {
-                        status = "reserved";
-                };
-
         };
 };
