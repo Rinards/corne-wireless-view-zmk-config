@@ -17,7 +17,7 @@
 #define M_RSHFT(keycode) &hm RSHFT keycode
 #define M_LCTRL(keycode) &hm LCTRL keycode
 #define M_RCTRL(keycode) &hm RCTRL keycode
-#define M_HYPR(keycode) &hm LGUI(LALT(LCTRL(LSHFT))) keycode
+#define M_HYPR(keycode) &hm LS(LC(LA(LGUI))) keycode
 
 / {
         behaviors {
