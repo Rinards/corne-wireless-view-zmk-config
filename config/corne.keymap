@@ -63,19 +63,19 @@
                 base_layer {
                         display-name = "QWERTY";
                         bindings = <
-    &kp ESC   &kp Q &kp W      &kp E     &kp R         &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
-    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F)     M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
-    &kp LALT  &kp Z &kp X      &kp C     &kp V         &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp LCTRL
-                               AS(TAB)   M_HYPR(SPACE) &kp RET         &mo NUM    &mo NAV   &kp RSHFT
+    &kp ESC   &kp Q &kp W      &kp E     &kp R     &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
+    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F) M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
+    &kp LALT  &kp Z &kp X      &kp C     &kp V     &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp RCTRL
+                               AS(TAB)   &kp SPACE &kp M_HYPR(RET) &mo NUM    &mo NAV   &kp RSHFT
                         >;
                 };
 
                 num_layer {
                         display-name = "NUM";
                         bindings = <
-    &trans &none &none     &none    &none    &none     AS(EQUAL) AS(N7) AS(N8) AS(N9) AS(MINUS) &trans
-    &none  &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT &td0      AS(N4) AS(N5) AS(N6) &td1      &none
-    &none  &none &none     &none    &none    &none     AS(BSLH)  AS(N1) AS(N2) AS(N3) &none     &none
+    &trans &none &none     &none    &none    &none     AS(EQUAL) AS(N7) AS(N8) AS(N9) &none &trans
+    &trans &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT AS(MINUS) AS(N4) AS(N5) AS(N6) &td0  &td1
+    &none  &none &none     &none    &none    &none     AS(BSLH)  AS(N1) AS(N2) AS(N3) &none &trans
                            &trans   &trans   &trans    &trans    &none  AS(N0)
                         >;
                 };
