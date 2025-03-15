@@ -66,7 +66,7 @@
     &kp ESC   &kp Q &kp W      &kp E     &kp R     &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
     AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F) M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
     &kp LALT  &kp Z &kp X      &kp C     &kp V     &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp RCTRL
-                               AS(TAB)   &kp SPACE &kp M_HYPR(RET) &mo NUM    &mo NAV   &kp RSHFT
+                               AS(TAB)   &kp SPACE M_HYPR(RET)     &mo NUM    &mo NAV   &kp RSHFT
                         >;
                 };
 
