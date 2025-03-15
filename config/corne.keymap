@@ -46,14 +46,14 @@
                 td0: tap_dance_0 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
-                        tapping-term-ms = <150>;
+                        tapping-term-ms = <175>;
                         bindings = <AS(LBKT)>, <&kp LPAR>;
                 };
 
                 td1: tap_dance_1 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
-                        tapping-term-ms = <150>;
+                        tapping-term-ms = <175>;
                         bindings = <AS(RBKT)>, <&kp RPAR>;
                 };
         };
