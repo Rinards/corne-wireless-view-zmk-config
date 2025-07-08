@@ -46,7 +46,7 @@
 
                 par: par_hold_tap {
                         compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
+                        #binding-cells = <0>;
                         tapping_term_ms = <150>;
                         quick_tap_ms = <0>;
                         flavor = "tap-preferred";
@@ -55,7 +55,7 @@
 
                 bkt: bkt_hold_tap {
                         compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
+                        #binding-cells = <0>;
                         tapping_term_ms = <150>;
                         quick_tap_ms = <0>;
                         flavor = "tap-preferred";
@@ -64,7 +64,7 @@
 
                 brc: brc_hold_tap {
                         compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
+                        #binding-cells = <0>;
                         tapping_term_ms = <150>;
                         quick_tap_ms = <0>;
                         flavor = "tap-preferred";
