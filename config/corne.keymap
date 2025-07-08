@@ -12,7 +12,8 @@
 #define NUM 1
 #define NAV 2
 
-#define AS(keycode) &as LS(keycode) keycode
+#define AS(keycode) &ht LS(keycode) keycode
+#define HT(tap, hold) &ht &kp tap &kp hold
 #define M_LGUI(keycode) &hm LGUI keycode
 #define M_RGUI(keycode) &hm RGUI keycode
 #define M_LALT(keycode) &hm LALT keycode
@@ -25,7 +26,7 @@
 
 / {
         behaviors {
-                as: auto_shift {
+                ht: hold_tap {
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         tapping_term_ms = <150>;
@@ -42,15 +43,6 @@
                         flavor = "balanced";
                         require-prior-idle-ms = <250>;
                         bindings = <&kp>, <&kp>;
-                };
-
-                par: par_hold_tap {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <0>;
-                        tapping_term_ms = <150>;
-                        quick_tap_ms = <0>;
-                        flavor = "tap-preferred";
-                        bindings = <&kp LPAR>, <&kp RPAR>;
                 };
         };
 
@@ -69,10 +61,10 @@
                 num_layer {
                         display-name = "NUM";
                         bindings = <
-                                &trans &none &none     &none    &none    &none     &none  AS(N7) AS(N8) AS(N9) AS(EQUAL) &trans
-                                &trans &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT &par   AS(N4) AS(N5) AS(N6) AS(MINUS) &none
-                                &none  &none &none     &none    &none    &none     &none  AS(N1) AS(N2) AS(N3) AS(BSLH)  &trans
-                                                       &trans   &trans   &trans    &trans &none  AS(N0)
+                                &trans &none &none     &none    &none    &none     &none          AS(N7) AS(N8) AS(N9) AS(EQUAL) &trans
+                                &trans &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT HT(LPAR, RPAR) AS(N4) AS(N5) AS(N6) AS(MINUS) &none
+                                &none  &none &none     &none    &none    &none     &none          AS(N1) AS(N2) AS(N3) AS(BSLH)  &trans
+                                                       &trans   &trans   &trans    &trans         &none  AS(N0)
                         >;
                 };
 
