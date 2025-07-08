@@ -13,7 +13,7 @@
 #define NAV 2
 
 #define AS(keycode) &ht LS(keycode) keycode
-#define HT(tap, hold) &ht &kp tap &kp hold
+#define HT(tap, hold) &ht tap hold
 #define M_LGUI(keycode) &hm LGUI keycode
 #define M_RGUI(keycode) &hm RGUI keycode
 #define M_LALT(keycode) &hm LALT keycode
