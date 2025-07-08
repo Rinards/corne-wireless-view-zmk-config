@@ -13,6 +13,7 @@
 #define NAV 2
 
 #define AS(keycode) &as LS(keycode) keycode
+#define HT(tap, hold) &ht &kp tap &kp hold
 #define M_LGUI(keycode) &hm LGUI keycode
 #define M_RGUI(keycode) &hm RGUI keycode
 #define M_LALT(keycode) &hm LALT keycode
@@ -57,6 +58,14 @@
                         tapping-term-ms = <175>;
                         bindings = <AS(RBKT)>, <&kp RPAR>;
                 };
+
+                ht: hold_tap {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <150>;
+                        quick-tap-ms = <0>;
+                        flavor = "tap-preferred";
+                };
         };
 
         keymap {
@@ -64,30 +73,30 @@
                 base_layer {
                         display-name = "QWERTY";
                         bindings = <
-    &kp ESC   &kp Q &kp W      &kp E     &kp R     &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
-    AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F) M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
-    &kp LALT  &kp Z &kp X      &kp C     &kp V     &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp RCTRL
-                               AS(TAB)   &kp SPACE M_HYPR(RET)     &mo NUM    &mo NAV   &kp RSHFT
+                                &kp ESC   &kp Q &kp W      &kp E     &kp R     &kp T           &kp Y      &kp U     &kp I     &kp O      &kp P    &kp BSPC
+                                AS(GRAVE) &kp A M_LCTRL(S) M_LALT(D) M_LGUI(F) M_LSHFT(G)      M_RSHFT(H) M_RGUI(J) M_RALT(K) M_RCTRL(L) AS(SEMI) AS(SQT)
+                                &kp LALT  &kp Z &kp X      &kp C     &kp V     &kp B           &kp N      &kp M     AS(COMMA) AS(DOT)    AS(FSLH) &kp RCTRL
+                                                           AS(TAB)   &kp SPACE M_HYPR(RET)     &mo NUM    &mo NAV   &kp RSHFT
                         >;
                 };
 
                 num_layer {
                         display-name = "NUM";
                         bindings = <
-    &trans &none &none     &none    &none    &none     AS(MINUS) AS(N7) AS(N8) AS(N9) AS(EQUAL) &trans
-    &trans &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT &td0      AS(N4) AS(N5) AS(N6) &td1      &none
-    &none  &none &none     &none    &none    &none     &none     AS(N1) AS(N2) AS(N3) AS(BSLH)  &trans
-                           &trans   &trans   &trans    &trans    &none  AS(N0)
+                                &trans &none &none     &none    &none    &none     AS(MINUS)      AS(N7) AS(N8) AS(N9) AS(EQUAL) &trans
+                                &trans &none &kp LCTRL &kp LALT &kp LGUI &kp LSHFT HT(LPAR, RPAR) AS(N4) AS(N5) AS(N6) &td1      &none
+                                &none  &none &none     &none    &none    &none     &none          AS(N1) AS(N2) AS(N3) AS(BSLH)  &trans
+                                                       &trans   &trans   &trans    &trans         &none  AS(N0)
                         >;
                 };
 
                 nav_layer {
                         display-name = "NAV";
                         bindings = <
-    &kp F1 &kp F2 &kp F3    &kp F4   &kp F5   &kp F6     &kp F7   &kp F8    &kp F9    &kp F10   &kp F11 &kp F12
-    &none  &none  &kp LCTRL &kp LALT &kp LGUI &kp LSHFT  &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none   &none
-    &none  &none  &none     &none    &none    &none      &kp HOME &kp PG_DN &kp PG_UP &kp END   &none   &none
-                            &trans   &trans   &trans     &trans   &trans    &none
+                                &kp F1 &kp F2 &kp F3    &kp F4   &kp F5   &kp F6     &kp F7   &kp F8    &kp F9    &kp F10   &kp F11 &kp F12
+                                &none  &none  &kp LCTRL &kp LALT &kp LGUI &kp LSHFT  &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &none   &none
+                                &none  &none  &none     &none    &none    &none      &kp HOME &kp PG_DN &kp PG_UP &kp END   &none   &none
+                                                        &trans   &trans   &trans     &trans   &trans    &none
                         >;
                 };
         };
